@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: session_summary
+    description: "Analytics model for session data"
+    columns:
+      - name: sessionId
+        description: "Unique identifier for each session"
+        tests:
+          - unique
+          - not_null
+
+      - name: userId
+        description: "Identifier for the user"
+        tests:
+          - not_null
+
+      - name: channel
+        description: "Marketing channel source"
+        tests:
+          - accepted_values:
+              values:
+                - 'Instagram'
+                - 'Naver'
+                - 'Youtube'
+                - 'Facebook'
+                - 'Organic'
+                - 'Google'
